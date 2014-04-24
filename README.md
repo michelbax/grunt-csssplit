@@ -104,3 +104,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 0.1.0 Initial Release
 
 0.1.1 Chage required Grunt version to '0.4.0'
+
+0.1.2 Move to Github.

@@ -2,22 +2,22 @@
   "name": "grunt-csssplit",
   "description": "IE Sucks. Who knew?",
   "version": "0.1.1",
-  "homepage": "https://bitbucket.org/projectcollins/grunt-csssplit",
+  "homepage": "https://github.com/project-collins/grunt-csssplit",
   "author": {
     "name": "Andrew Smith",
     "email": "andy@robotlovesyou.com"
   },
   "repository": {
     "type": "git",
-    "url": "git://bitbucket.org/projectcollins/grunt-csssplit.git"
+    "url": "git://github.com/project-collins/grunt-csssplit.git"
   },
   "bugs": {
-    "url": "https://bitbucket.org/projectcollins/grunt-csssplit/issues"
+    "url": "https://github.com/project-collins/grunt-csssplit/issues"
   },
   "licenses": [
     {
       "type": "MIT",
-      "url": "https://bitbucket.org/projectcollins/grunt-csssplit/raw/master/LICENSE-MIT"
+      "url": "https://github.com/project-collins/grunt-csssplit/raw/master/LICENSE-MIT"
     }
   ],
   "engines": {
