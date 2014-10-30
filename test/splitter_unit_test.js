@@ -22,8 +22,8 @@ describe('splitter module', function () {
         expect(require(splitterPath)({}, {})).to.be.an.object;
     });
 
-    it('requires two parameters', function () {
-        expect(require(splitterPath).bind(this, {})).to.throw();
+    it('requires no parameters', function () {
+        expect(require(splitterPath).bind(this, {})).not.to.throw();
     });
 
     describe('splitter instance', function () {
@@ -54,7 +54,7 @@ describe('splitter module', function () {
                 expect(instance.split).to.exist;
             });
 
-            it('takes two paramters', function () {
+            it('takes two parameters', function () {
                 expect(instance.split).to.have.length(2);
             });
 
@@ -73,43 +73,6 @@ describe('splitter module', function () {
             });
         });
 
-        describe('_parseCSS function', function () {
-            var parser;
-
-            beforeEach(function () {
-                parser = sinon.stub().returns(ast);
-                instance = require(splitterPath)(parser, {});
-            });
-
-            it('exists', function (){
-                expect(instance._parseCSS).to.exist;
-            });
-
-            it('is a function', function () {
-                expect(instance._parseCSS).to.be.a('function');
-            });
-
-            it('takes a single argument', function () {
-                expect(instance._parseCSS).to.have.length(1);
-            });
-
-            it('throws an error if the supplied argument is not a string', function () {
-                expect(instance._parseCSS.bind(instance, 123)).to.throw();
-            });
-
-            it('throws an error if the supplied string has a length of 0', function () {
-                expect(instance._parseCSS.bind(instance, '')).to.throw();
-            });
-
-            it('calls _parser.parse', function () {
-                instance._parseCSS(css);
-                expect(parser).to.have.been.called;
-            });
-
-            it('returns the result of calling _parser.parse', function () {
-                expect(instance._parseCSS(css)).to.equal(ast);
-            });
-        });
 
         describe('_splitCSS function', function () {
             var pages;
@@ -138,14 +101,6 @@ describe('splitter module', function () {
                 expect(instance._splitCSS).to.have.length(2);
             });
 
-            it('calls _calcPageCount', function () {
-                expect(instance._calcPageCount).to.have.been.calledWith(ast, 1);
-            });
-
-            it('calls _toPages with the result of the calcPageCount function', function () {
-                expect(instance._toPages).to.have.been.calledWith(6);
-            });
-
             it('calls _stringifyer with each page', function () {
 
                 pages.forEach(function (page) {
@@ -157,29 +112,6 @@ describe('splitter module', function () {
                 expect(instance._splitCSS(ast, 1)).to.eql(['', '', '', '', '', '']);
             });
 
-        });
-
-        describe('_calcPageCount', function () {
-
-            beforeEach(function () {
-                instance = require(splitterPath)({}, {});
-            });
-
-            it('exists', function () {
-                expect(instance._calcPageCount).to.exist;
-            });
-
-            it('is a function', function () {
-                expect(instance._calcPageCount).to.be.a('function');
-            });
-
-            it('returns the correct page count for an ast with an exact page count', function () {
-                expect(instance._calcPageCount(ast, 2)).to.equal(3);
-            });
-
-            it('returns the correct page count for an ast with an uneven page count', function () {
-                expect(instance._calcPageCount(ast, 4)).to.equal(2);
-            });
         });
 
         describe('_toPages', function () {
@@ -195,12 +127,12 @@ describe('splitter module', function () {
                 expect(instance._toPages).to.be.a('function');
             });
 
-            it('takes three arguments', function () {
-                expect(instance._toPages).to.have.length(3);
+            it('takes two arguments', function () {
+                expect(instance._toPages).to.have.length(2);
             });
 
             it('returns an array', function () {
-                expect(instance._toPages(3, ast, 2)).to.be.an('array');
+                expect(instance._toPages(ast, 2)).to.be.an('array');
             });
         });
     });
