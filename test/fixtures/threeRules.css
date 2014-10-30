@@ -10,7 +10,7 @@ body {
     left: 0px;
 }
 
-#stinky {
+#stinky > div {
     position: relative;
     float: left;
     width: 50%;

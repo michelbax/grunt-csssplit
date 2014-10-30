@@ -80,10 +80,9 @@ describe('splitter module', function () {
             beforeEach(function () {
                 pages = [{}, {}, {}, {}, {}, {}];
 
-                instance = require(splitterPath)({}, {});
+                instance = require(splitterPath)();
 
                 instance._stringifyer = sinon.stub().returns('');
-                instance._calcPageCount = sinon.stub().returns(6);
                 instance._toPages = sinon.stub().returns(pages);
 
                 instance._splitCSS(ast, 1);
