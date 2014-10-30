@@ -34,8 +34,8 @@ module.exports = function(grunt) {
             src: 'test/fixtures/threeRules.css',
             dest: 'tmp',
             options: {
-                maxRules: 2,
-                maxPages: 2
+              maxSelectors: 2,
+              maxPages: 2
             }
         }
     },

@@ -4,13 +4,13 @@ body {
     font-color: deeppink;
 }
 
-.smelly .feet {
+.smelly {
     position: absolute;
     top: 0px;
     left: 0px;
 }
 
-#stinky > div {
+#stinky {
     position: relative;
     float: left;
     width: 50%;
