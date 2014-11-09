@@ -2,7 +2,7 @@
 
 > IE Sucks. Who knew?
 
-IE9 has a per file css rule limit of 4096. Why? Because Bill hates you that's why.
+IE9 has a per file css rule limit of 4096. Why? Because Bill hates you, that's why.
 grunt-csssplit makes use of css-parse and css-stringify from the reworkcss project to split css files
 into a size which IE9 can handle.
 
@@ -106,3 +106,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 0.1.1 Chage required Grunt version to '0.4.0'
 
 0.1.2 Move to Github.
+
+0.1.3 Oops, update the package too
