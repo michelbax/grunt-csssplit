@@ -8,7 +8,7 @@
 
 'use strict';
 
-var splitter = require('../lib/splitter')(require('css-parse'), require('css-stringify'));
+var splitter = require('../lib/splitter')();
 var path = require('path');
 var _ = require('lodash');
 
@@ -48,7 +48,7 @@ module.exports = function(grunt) {
 
         return {
             original: path.basename(filePath),
-            pages: checkPageCount(splitter.split(grunt.file.read(filePath), options.maxRules), options, filePath)
+            pages: checkPageCount(splitter.split(grunt.file.read(filePath), options.maxSelectors), options, filePath)
         };
     }
 
@@ -93,7 +93,7 @@ module.exports = function(grunt) {
         // Merge task-specific and/or target-specific options with these defaults.
         var options = this.options({
           suffix: '_part_',
-          maxRules: 4095,
+          maxSelectors: 4095,
           maxPages: false
         });
 
