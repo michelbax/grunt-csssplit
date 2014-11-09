@@ -7,6 +7,7 @@ grunt-csssplit makes use of css-parse and css-stringify from the reworkcss proje
 into a size which IE9 can handle.
 
 ## Getting Started
+
 This plugin requires Grunt `~0.4.0`
 
 If you haven't used [Grunt](http://gruntjs.com/) before, be sure to check out the [Getting Started](http://gruntjs.com/getting-started) guide, as it explains how to create a [Gruntfile](http://gruntjs.com/sample-gruntfile) as well as install and use Grunt plugins. Once you're familiar with that process, you may install this plugin with this command:
@@ -24,6 +25,7 @@ grunt.loadNpmTasks('grunt-csssplit');
 ## The "csssplit" task
 
 ### Overview
+
 In your project's Gruntfile, add a section named `csssplit` to the data object passed into `grunt.initConfig()`.
 
 ```js
@@ -33,7 +35,7 @@ grunt.initConfig({
       src: ['path/or/paths/to/your/css'],
       dest: 'directory/to/write/split/css/to',
       options: {
-          maxRules: 4095,
+          maxSelectors: 4095,
           maxPages: 3,
           suffix: '_page_'
       }
@@ -44,14 +46,18 @@ grunt.initConfig({
 
 ### Options
 
-#### options.maxRules
+#### options.maxSelectors
+
 Type: `Number`
+
 Default value: `4095`
 
-The maximum number of rules for each output css file
+The maximum number of selectors for each output css file
 
 #### options.maxPages
+
 Type: `Number` or `Boolean`
+
 Default value: `false`
 
 Warn if the number of pages output for any input file exceeds this number. Useful for
@@ -60,6 +66,7 @@ situations where html needs editing if the output file count increases.
 ### Usage Examples
 
 #### Default Options
+
 This example would split `file.css` into as many files as necessary, with a limit of 4095
 rules per output file. The output files would be named `file_page_1.css, file_page_2.css ... file_page_n.css`
 
@@ -75,8 +82,9 @@ grunt.initConfig({
 ```
 
 #### Custom Options
+
 This example would split `file.css` into a maximum of 3 files, with a limit of 1000
-rules per output file. The output files would be named `filePage1.css, filePage2.css ... filePagen.css`.
+selectors per output file. The output files would be named `filePage1.css, filePage2.css ... filePagen.css`.
 If the output per input file exceeded 3 files a warning would be fired.
 
 ```js
@@ -87,7 +95,7 @@ grunt.initConfig({
         src: ['path/or/paths/to/your/css'],
         dest: 'directory/to/write/split/css/to',
         options: {
-            maxRules: 1000,
+            maxSelectors: 1000,
             maxPages: 3,
             suffix: 'Page'
         }
@@ -98,9 +106,11 @@ grunt.initConfig({
 ```
 
 ## Contributing
+
 In lieu of a formal styleguide, take care to maintain the existing coding style. Add unit tests for any new or changed functionality. Lint and test your code using [Grunt](http://gruntjs.com/).
 
 ## Release History
+
 0.1.0 Initial Release
 
 0.1.1 Chage required Grunt version to '0.4.0'

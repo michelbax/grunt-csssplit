@@ -1,6 +1,6 @@
 /* jshint -W030 */
 var expect = require('chai').expect;
-var splitter = require('../lib/splitter')(require('css-parse'), require('css-stringify'));
+var splitter = require('../lib/splitter')();
 
 var grunt = require('grunt');
 var path = require('path');
