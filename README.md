@@ -118,3 +118,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 0.1.2 Move to Github.
 
 0.1.3 Oops, update the package too
+
+0.1.4 Split on selectors instead of rules (@paazmaya)
