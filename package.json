@@ -24,7 +24,7 @@
     "node": ">= 0.10.0"
   },
   "scripts": {
-    "coverage": "./node_modules/.bin/istanbul cover _mocha -- -R spec",
+    "coverage": "./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha -- -R spec",
     "test": "grunt test"
   },
   "devDependencies": {
