@@ -44,8 +44,7 @@
     "gruntplugin"
   ],
   "dependencies": {
-    "css-parse": "~1.7.0",
-    "css-stringify": "~1.4.1",
+    "css": "~1.6",
     "lodash": "~2.4.1"
   }
 }
