@@ -123,3 +123,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 0.1.3 Oops, update the package too
 
 0.2.0 Split on selectors instead of rules (@paazmaya)
+
+0.2.1 Add dependency checking to README.md and update packages (@paazmaya & @RidiculousGnome)
