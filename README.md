@@ -1,3 +1,6 @@
+[![Dependency Status](https://david-dm.org/project-collins/grunt-csssplit.svg)](https://david-dm.org/project-collins/grunt-csssplit)
+[![devDependency Status](https://david-dm.org/project-collins/grunt-csssplit/dev-status.svg)](https://david-dm.org/project-collins/grunt-csssplit#info=devDependencies)
+
 # grunt-csssplit
 
 > IE Sucks. Who knew?
