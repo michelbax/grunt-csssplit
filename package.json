@@ -1,7 +1,7 @@
 {
   "name": "grunt-csssplit",
   "description": "IE Sucks. Who knew?",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "homepage": "https://github.com/project-collins/grunt-csssplit",
   "author": {
     "name": "Andrew Smith",
@@ -46,6 +46,6 @@
   ],
   "dependencies": {
     "css": "~2.1.0",
-    "lodash": "~2.4.1"
+    "lodash": "~3.0.0"
   }
 }
