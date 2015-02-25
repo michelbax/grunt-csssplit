@@ -127,3 +127,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 0.2.1 Add dependency checking to README.md and update packages (@paazmaya & @RidiculousGnome)
 
 0.2.2 Update packages (@RidiculousGnome)
+
+0.2.3 Update packages (@RidiculousGnome)
