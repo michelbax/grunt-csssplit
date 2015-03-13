@@ -45,7 +45,7 @@ module.exports = function(grunt) {
 
 
     function cssFileToPages(options, filePath) {
-
+        console.log(arguments);
         return {
             original: path.basename(filePath),
             pages: checkPageCount(splitter.split(grunt.file.read(filePath), options.maxSelectors), options, filePath)
@@ -53,10 +53,10 @@ module.exports = function(grunt) {
     }
 
     function checkPageCount(pages, options, filePath) {
+        console.log(arguments);
         if(options.maxPages && pages.length > options.maxPages) {
             throw new Error('Created ' + pages.length + ' pages for file "' + filePath + '"');
         }
-
         return pages;
     }
 
@@ -104,11 +104,10 @@ module.exports = function(grunt) {
 
             var opts = _.extend({dest: f.dest}, options);
 
-            f
-            .src
+            grunt.file.expand(f.src)
             .map(cssFileToPages.bind(this, opts))
             .forEach(writeCSSPages.bind(this, opts));
-    });
+        });
   });
 
 };

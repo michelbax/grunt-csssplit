@@ -31,11 +31,12 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     csssplit: {
         test: {
-            src: 'test/fixtures/threeRules.css',
+            src: 'test/fixtures/**/*.css',
             dest: 'tmp',
             options: {
-              maxSelectors: 2,
-              maxPages: 2
+              maxSelectors:2
+              // maxSelectors: 1000,
+              // maxPages: 2
             }
         }
     },
