@@ -31,7 +31,21 @@ module.exports = function(grunt) {
     // Configuration to be run (and then tested).
     csssplit: {
         test: {
-            src: 'test/fixtures/threeRules.css',
+            cwd: 'test/fixtures',
+            src: 'glob/**/*.css',
+            dest: 'tmp',
+            flatten:false,
+            expand:true,
+            options: {
+              maxSelectors: 2,
+              maxPages: 2
+            }
+        },
+        test2: {
+            cwd: 'test/fixtures',
+            src: 'flatten/*.css',
+            expand:true,
+            flatten:true,
             dest: 'tmp',
             options: {
               maxSelectors: 2,
