@@ -9,7 +9,7 @@
 'use strict';
 
 var splitter = require('../lib/splitter')();
-var path = require('path');
+var path = require('../lib/path_0.12.0');
 var _ = require('lodash');
 
 
