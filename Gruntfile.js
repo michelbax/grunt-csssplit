@@ -51,6 +51,24 @@ module.exports = function(grunt) {
               maxSelectors: 2,
               maxPages: 2
             }
+        },
+        suppress: {
+            cwd: 'test/fixtures',
+            src: 'suppress/*.css',
+            expand: true,  
+            dest: 'tmp',
+            options: {
+              suppressSinglePage: true
+            }
+        },
+        dontsuppress: {
+            cwd: 'test/fixtures',
+            src: 'dontsuppress/*.css',
+            expand: true,  
+            dest: 'tmp',
+            options: {
+              suppressSinglePage: false
+            }
         }
     },
     mochaTest: {

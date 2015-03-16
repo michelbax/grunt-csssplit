@@ -28,4 +28,12 @@ describe('csssplit', function () {
             expect(expected).to.equal(actual);
         });
     });
+
+    it('didnt create any unexpected files', function () {
+        grunt.file.recurse('tmp', function (abspath, rootdir, subdir, filename) {
+            var expected = grunt.file.read(path.join('tmp',  subdir || '', filename));
+            var actual = grunt.file.read(path.join('test', 'expected', subdir || '', filename));
+            expect(expected).to.equal(actual);
+        });
+    });
 });

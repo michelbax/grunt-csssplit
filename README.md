@@ -66,6 +66,14 @@ Default value: `false`
 Warn if the number of pages output for any input file exceeds this number. Useful for
 situations where html needs editing if the output file count increases.
 
+#### options.suppressSinglePage
+
+Type: `Boolean`
+
+Default value: `false`
+
+Controls whether or not to write a page file if it would be the only page for the given source file.
+
 ### Usage Examples
 
 #### Default Options
