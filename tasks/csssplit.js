@@ -80,9 +80,16 @@ module.exports = function(grunt) {
     function makeCSSFileName(options, pageNum) {
         var dirname = path.dirname(options.dest),
             extname = path.extname(options.dest),
-            basename = path.basename(options.dest).replace(extname,''),
-            finalName;
+            basename, finalName;
 
+        basename = path.basename(options.dest);
+        if (extname !== '') {
+            var index = basename.lastIndexOf(extname);
+            if (index >= 0)
+            {
+                basename = basename.substring(0, index);
+            }
+        }
         finalName = path.join(dirname, basename + options.suffix + pageNum.toString() + extname);
         return finalName;
     }
