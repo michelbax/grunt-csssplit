@@ -9,7 +9,7 @@
 'use strict';
 
 var splitter = require('../lib/splitter')();
-var path = require('../lib/path_0.12.0');
+var path = require('path');
 var _ = require('lodash');
 
 
@@ -78,10 +78,13 @@ module.exports = function(grunt) {
 
 
     function makeCSSFileName(options, pageNum) {
-        var parsed = path.parse(options.dest);
-        parsed.name += options.suffix + pageNum.toString();
-        parsed.base = parsed.name + parsed.ext;
-        return path.format(parsed);
+        var dirname = path.dirname(options.dest),
+            extname = path.extname(options.dest),
+            basename = path.basename(options.dest).replace(extname,''),
+            finalName;
+
+        finalName = path.join(dirname, basename + options.suffix + pageNum.toString() + extname);
+        return finalName;
     }
 
     grunt.registerMultiTask('csssplit', 'IE Sucks. Who knew?', function() {
