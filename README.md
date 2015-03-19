@@ -131,3 +131,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 0.2.3 Update packages (@RidiculousGnome)
 
 0.2.4 Update packages (@RidiculousGnome)
+
+0.3.0 Add file globbing ([MattCBowman](https://github.com/MattCBowman))
