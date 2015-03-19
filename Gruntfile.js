@@ -41,7 +41,7 @@ module.exports = function(grunt) {
               maxPages: 2
             }
         },
-        test2: {
+        testFlatten: {
             cwd: 'test/fixtures',
             src: 'flatten/*.css',
             expand:true,
@@ -68,6 +68,17 @@ module.exports = function(grunt) {
             dest: 'tmp',
             options: {
               suppressSinglePage: false
+            }
+        },
+        testExtension: {
+            cwd: 'test/fixtures',
+            src: 'extension/*',
+            expand:true,
+            flatten:false,
+            dest: 'tmp',
+            options: {
+              maxSelectors: 2,
+              maxPages: 2
             }
         }
     },
