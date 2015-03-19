@@ -52,6 +52,24 @@ module.exports = function(grunt) {
               maxPages: 2
             }
         },
+        suppress: {
+            cwd: 'test/fixtures',
+            src: 'suppress/*.css',
+            expand: true,  
+            dest: 'tmp',
+            options: {
+              suppressSinglePage: true
+            }
+        },
+        dontsuppress: {
+            cwd: 'test/fixtures',
+            src: 'dontsuppress/*.css',
+            expand: true,  
+            dest: 'tmp',
+            options: {
+              suppressSinglePage: false
+            }
+        },
         testExtension: {
             cwd: 'test/fixtures',
             src: 'extension/*',

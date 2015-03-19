@@ -94,6 +94,10 @@ module.exports = function(grunt) {
         return finalName;
     }
 
+    function filterSuppressed(options, splitCSS) {
+        return splitCSS.pages.length > 1 || !options.suppressSinglePage;
+    }
+
     grunt.registerMultiTask('csssplit', 'IE Sucks. Who knew?', function() {
 
         // Merge task-specific and/or target-specific options with these defaults.
@@ -111,6 +115,7 @@ module.exports = function(grunt) {
             var opts = _.extend({dest: f.dest}, options);
             f.src
             .map(cssFileToPages.bind(this, opts))
+            .filter(filterSuppressed.bind(this, opts))
             .forEach(writeCSSPages.bind(this, opts));
         });
   });
