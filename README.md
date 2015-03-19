@@ -141,3 +141,5 @@ In lieu of a formal styleguide, take care to maintain the existing coding style.
 0.2.4 Update packages (@RidiculousGnome)
 
 0.3.0 Add file globbing ([MattCBowman](https://github.com/MattCBowman))
+
+0.4.0 Add single file suppression. 0.3.0 Add file globbing ([mhupman](https://github.com/mhupman))
