@@ -9,7 +9,7 @@ describe('splitter', function () {
     var result;
 
     beforeEach(function () {
-        result = splitter.split(grunt.file.read('test/fixtures/threeRules.css'), 2);
+        result = splitter.split(grunt.file.read('test/fixtures/flatten/threeRules.css'), 2);
     });
 
     it('splits a stylesheet into the correct number of pages', function () {
@@ -23,8 +23,8 @@ describe('csssplit', function () {
 
     it('creates all the expected files', function () {
         grunt.file.recurse('test/expected', function (abspath, rootdir, subdir, filename) {
-            var expected = grunt.file.read(path.join('test', 'expected', filename));
-            var actual = grunt.file.read(path.join('tmp', filename));
+            var expected = grunt.file.read(path.join('test', 'expected', subdir || '', filename));
+            var actual = grunt.file.read(path.join('tmp',  subdir || '', filename));
             expect(expected).to.equal(actual);
         });
     });

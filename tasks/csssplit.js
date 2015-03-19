@@ -45,7 +45,6 @@ module.exports = function(grunt) {
 
 
     function cssFileToPages(options, filePath) {
-
         return {
             original: path.basename(filePath),
             pages: checkPageCount(splitter.split(grunt.file.read(filePath), options.maxSelectors), options, filePath)
@@ -56,36 +55,43 @@ module.exports = function(grunt) {
         if(options.maxPages && pages.length > options.maxPages) {
             throw new Error('Created ' + pages.length + ' pages for file "' + filePath + '"');
         }
-
         return pages;
     }
 
 
     function writeCSSPages(options, splitCSS) {
-
-        ensureDestExists(options.dest);
+        ensureDestExists(path.dirname(options.dest));
 
         var pageNum = 1;
 
         splitCSS.pages.forEach(function (page) {
-            writeCSSPage(page, options, splitCSS.original, pageNum);
+            writeCSSPage(page, options, pageNum);
             pageNum += 1;
         });
     }
 
 
-    function writeCSSPage(page, options, originalName, pageNum) {
-        grunt.file.write(makeCSSFileName(options, originalName, pageNum), page);
-        grunt.log.writeln('File "' + makeCSSFileName(options, originalName, pageNum) + '" created.');
+    function writeCSSPage(page, options, pageNum) {
+        grunt.file.write(makeCSSFileName(options, pageNum), page);
+        grunt.log.writeln('File "' + makeCSSFileName(options, pageNum) + '" created.');
     }
 
 
-    function makeCSSFileName(options, originalName, pageNum) {
-        var basename = path.basename(originalName, '.css');
+    function makeCSSFileName(options, pageNum) {
+        var dirname = path.dirname(options.dest),
+            extname = path.extname(options.dest),
+            basename, finalName;
 
-        var newname = basename + options.suffix + pageNum.toString() + '.css';
-
-        return path.join(options.dest, newname);
+        basename = path.basename(options.dest);
+        if (extname !== '') {
+            var index = basename.lastIndexOf(extname);
+            if (index >= 0)
+            {
+                basename = basename.substring(0, index);
+            }
+        }
+        finalName = path.join(dirname, basename + options.suffix + pageNum.toString() + extname);
+        return finalName;
     }
 
     grunt.registerMultiTask('csssplit', 'IE Sucks. Who knew?', function() {
@@ -103,12 +109,10 @@ module.exports = function(grunt) {
             ensureDest(f);
 
             var opts = _.extend({dest: f.dest}, options);
-
-            f
-            .src
+            f.src
             .map(cssFileToPages.bind(this, opts))
             .forEach(writeCSSPages.bind(this, opts));
-    });
+        });
   });
 
 };
